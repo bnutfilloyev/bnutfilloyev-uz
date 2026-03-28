@@ -1,0 +1,62 @@
+<!-- ============================================
+  Made by Bekhruz Nutfilloev — bnutfilloyev.uz
+  Copy-paste this snippet before </body>
+  ============================================ -->
+
+<a href="https://bnutfilloyev.uz" target="_blank" rel="noopener noreferrer"
+   id="bn-badge" aria-label="Made by Bekhruz Nutfilloev" title="bnutfilloyev.uz">
+  <span class="bn-dot"></span>
+  Made by <strong>B.N.</strong>
+</a>
+
+<style>
+  #bn-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9000;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 13px;
+    border-radius: 100px;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-decoration: none;
+    color: rgba(237,237,232,.7);
+    background: rgba(10,10,10,.85);
+    border: 1px solid rgba(255,255,255,.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: .7;
+    transition: opacity .2s, transform .2s;
+    user-select: none;
+  }
+  #bn-badge:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    color: rgba(237,237,232,1);
+    border-color: rgba(255,255,255,.2);
+  }
+  #bn-badge strong {
+    color: #C8A96E;
+    font-weight: 500;
+  }
+  .bn-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #C8A96E;
+    flex-shrink: 0;
+  }
+  /* Light background saytlar uchun: id ni #bn-badge-light ga o'zgartiring */
+  #bn-badge-light {
+    color: rgba(0,0,0,.5);
+    background: rgba(255,255,255,.9);
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  }
+  #bn-badge-light strong { color: #333; }
+  #bn-badge-light:hover  { color: rgba(0,0,0,.8); }
+</style>
