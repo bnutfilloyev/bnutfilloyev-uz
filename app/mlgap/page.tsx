@@ -43,11 +43,12 @@ export const viewport: Viewport = {
 // Checked at build time: drop public/mlgap/slides.pdf in and redeploy to switch the CTA on.
 const hasSlides = existsSync(path.join(process.cwd(), 'public', 'mlgap', 'slides.pdf'))
 
-// Same order as slide 43: "@bnutfilloyev on Instagram · X · Telegram".
+// Slide 43 order ("@bnutfilloyev on Instagram · X · Telegram"), then LinkedIn.
 const channels = [
   { name: 'Instagram', href: 'https://www.instagram.com/bnutfilloyev/' },
   { name: 'X',         href: 'https://x.com/bnutfilloyev' },
   { name: 'Telegram',  href: TELEGRAM },
+  { name: 'LinkedIn',  href: LINKEDIN },
 ]
 
 const steps = [
@@ -176,9 +177,6 @@ export default function MlGap() {
                   </li>
                 ))}
               </ul>
-              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={s.minor}>
-                Also on LinkedIn
-              </a>
             </div>
           </div>
         </div>
