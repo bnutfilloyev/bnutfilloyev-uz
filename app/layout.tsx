@@ -23,9 +23,11 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://bnutfilloyev.uz'),
   title: 'Bekhruz Nutfilloev — Machine Learning Engineer',
+  alternates: { canonical: '/' },
   description:
-    'Machine Learning Engineer with 5+ years building production AI at scale. Led MyID biometric platform serving 10M+ monthly requests across 50+ banks in Uzbekistan.',
+    'Machine Learning Engineer with 5+ years building production AI at scale. Core engineer on the MyID biometric platform — 10M+ monthly requests across 50+ banks in Uzbekistan.',
   authors: [{ name: 'Bekhruz Nutfilloev' }],
   keywords: ['Machine Learning', 'AI Engineer', 'Computer Vision', 'Biometrics', 'Tashkent', 'Uzbekistan'],
   openGraph: {

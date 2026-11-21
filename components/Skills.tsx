@@ -15,7 +15,7 @@ const cats = [
   },
   {
     label: 'MLOps & Infra',
-    items: ['Docker / CI/CD', 'MLflow / PyTorchserve', 'FastAPI', 'Qdrant / FAISS', 'ElasticSearch', 'PostgreSQL'],
+    items: ['Docker / CI/CD', 'MLflow / TorchServe', 'FastAPI', 'Qdrant / FAISS', 'ElasticSearch', 'PostgreSQL'],
   },
 ]
 
@@ -25,7 +25,6 @@ export default function Skills() {
       <div className="wrap">
         <Reveal className="section-header">
           <h2 className="section-title" style={{ fontFamily: 'var(--font-serif)' }}>Skills</h2>
-          <span className="section-count" style={{ fontFamily: 'var(--font-mono)' }}>Production-focused</span>
         </Reveal>
 
         <Reveal delay={100}>

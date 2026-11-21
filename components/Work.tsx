@@ -69,13 +69,12 @@ export default function Work() {
       <div className="wrap">
         <Reveal className="section-header">
           <h2 className="section-title" style={{ fontFamily: 'var(--font-serif)' }}>Selected Work</h2>
-          <span className="section-count" style={{ fontFamily: 'var(--font-mono)' }}>06 projects</span>
         </Reveal>
 
         <ul className="project-list">
           {projects.map((p, i) => (
             <Reveal key={p.num} as="li" className="project-item" delay={i * 60}>
-              <span className="project-num" style={{ fontFamily: 'var(--font-mono)' }}>{p.num}</span>
+              <span className="project-num" style={{ fontFamily: 'var(--font-mono)' }}>{p.year}</span>
               <div className="project-body">
                 <h3 className="project-name">{p.name}</h3>
                 <p className="project-desc">{p.desc}</p>
@@ -86,7 +85,6 @@ export default function Work() {
                 </div>
               </div>
               <div className="project-meta" style={{ fontFamily: 'var(--font-mono)' }}>
-                <span className="project-year">{p.year}</span>
                 <span className="project-cat">{p.cat}</span>
                 <div className="project-links-meta">
                   {p.link && (
@@ -97,7 +95,7 @@ export default function Work() {
                   {p.org && <span className="proj-link">{p.org}</span>}
                 </div>
               </div>
-              <span className="project-arrow" aria-hidden="true">↗</span>
+              {p.link && <span className="project-arrow" aria-hidden="true">↗</span>}
             </Reveal>
           ))}
         </ul>

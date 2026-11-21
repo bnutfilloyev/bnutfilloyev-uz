@@ -18,6 +18,19 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (!open) return
+    const shut = () => { setOpen(false); document.body.style.overflow = '' }
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') shut() }
+    const onResize = () => { if (window.innerWidth > 768) shut() }
+    window.addEventListener('keydown', onKey)
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('resize', onResize)
+    }
+  }, [open])
+
   const close = () => { setOpen(false); document.body.style.overflow = '' }
   const toggle = () => {
     const next = !open
@@ -27,7 +40,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className={`mobile-nav${open ? ' open' : ''}`} aria-label="Mobile navigation">
+      <nav id="mobile-nav" className={`mobile-nav${open ? ' open' : ''}`} aria-label="Mobile navigation">
         {['Work','About','Skills','Resume','Contact'].map(s => (
           <a key={s} href={`#${s.toLowerCase()}`} onClick={close}>{s}</a>
         ))}
@@ -57,6 +70,7 @@ export default function Nav() {
                 onClick={toggle}
                 aria-label="Toggle navigation"
                 aria-expanded={open}
+                aria-controls="mobile-nav"
               >
                 <span /><span /><span />
               </button>

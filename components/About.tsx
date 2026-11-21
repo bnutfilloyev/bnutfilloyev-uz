@@ -19,8 +19,8 @@ export default function About({ stats }: { stats: GitHubStats | null }) {
               reliably under real-world constraints, not just in notebooks.
             </p>
             <p>
-              At <strong>UZINFOCOM LLC</strong>, I built MyID and PalmID — biometric platforms
-              embedded in Uzbekistan&apos;s banking infrastructure. That meant adversarial conditions,
+              At <strong>UZINFOCOM LLC</strong>, I was a core engineer on MyID and PalmID — biometric
+              platforms embedded in Uzbekistan&apos;s banking infrastructure. That meant adversarial conditions,
               regulatory compliance, encrypted model deployment on IoT devices, and latency
               budgets measured in milliseconds.
             </p>
@@ -38,13 +38,9 @@ export default function About({ stats }: { stats: GitHubStats | null }) {
                 { key: 'Current',   val: 'AI Implementation Group' },
                 { key: 'Location',  val: 'Tashkent, Uzbekistan' },
                 { key: 'Education', val: 'TUIT + Innopolis University' },
-                { key: 'GitHub',    val: <a href="https://github.com/bnutfilloyev" target="_blank" rel="noopener noreferrer">@bnutfilloyev</a>, mono: true },
-                { key: 'Repos',     val: stats ? `${stats.repos} public` : '73 public' },
-                { key: 'Followers', val: stats ? `${stats.followers}` : '87' },
-                { key: 'Award',     val: 'World AI & Data Challenge' },
-                { key: 'Award',     val: 'Open Data Challenge UZ' },
-                { key: 'Award',     val: 'Voice AI Challenge 2021' },
-                { key: 'Phone',     val: <a href="tel:+998883001001">+998 88 300 10 01</a> },
+                { key: 'GitHub',    val: <a href="https://github.com/bnutfilloyev" target="_blank" rel="noopener noreferrer">@bnutfilloyev</a> },
+                { key: 'Public repos', val: stats ? `${stats.repos}` : '75' },
+                { key: 'GitHub followers', val: stats ? `${stats.followers}` : '95' },
               ].map((f, i) => (
                 <li key={i} className="about-fact">
                   <span className="fact-key">{f.key}</span>

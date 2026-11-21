@@ -11,7 +11,7 @@ export default function Resume() {
 
         <div className="resume-cols">
           <Reveal>
-            <p className="resume-col-head" style={{ fontFamily: 'var(--font-mono)' }}>Work History</p>
+            <p className="resume-col-head" style={{ fontFamily: 'var(--font-mono)' }}>Work history</p>
             <ul className="exp-list">
               {[
                 {
@@ -19,12 +19,6 @@ export default function Resume() {
                   role: 'Machine Learning Engineer',
                   org: 'AI Implementation Group',
                   desc: 'Architect and deploy production ML models for enterprise-scale AI solutions. Design MLOps pipelines for automated model training, testing, deployment, and monitoring.',
-                },
-                {
-                  date: 'November 2021 — January 2025',
-                  role: 'Machine Learning Engineer & Researcher',
-                  org: 'UZINFOCOM LLC',
-                  desc: 'Engineered MyID facial recognition (50+ banks, 10M+ monthly requests, 99.7% accuracy). Built PalmID C/C++ SDK with 60% inference speedup via TensorRT. ArcFace/FaceNet on edge with 8× memory reduction.',
                 },
                 {
                   date: 'January — September 2025',
@@ -39,10 +33,22 @@ export default function Resume() {
                   desc: 'Founded IT consulting firm, AI-powered digital transformation for 15+ enterprise clients.',
                 },
                 {
+                  date: 'November 2021 — January 2025',
+                  role: 'Machine Learning Engineer & Researcher',
+                  org: 'UZINFOCOM LLC',
+                  desc: 'Core engineer on MyID facial recognition (50+ banks, 10M+ monthly requests, 99.7% accuracy). PalmID C/C++ SDK: 60% inference speedup via TensorRT. ArcFace/FaceNet on edge with 8× memory reduction.',
+                },
+                {
                   date: 'May — August 2021',
                   role: 'Computer Vision Engineer',
                   org: 'TASS Vision',
                   desc: 'Object detection on NVIDIA Jetson at 30 FPS. 45% latency reduction via CUDA optimization.',
+                },
+                {
+                  date: 'January — July 2021',
+                  role: 'Machine Learning Engineer Intern',
+                  org: 'TTSUzbekistan',
+                  desc: 'Automatic speech recognition for Uzbek with SOVA ASR — 92% word accuracy.',
                 },
               ].map((e) => (
                 <li key={e.date} className="exp-item">

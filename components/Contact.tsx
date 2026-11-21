@@ -4,6 +4,8 @@ import Reveal from './Reveal'
 
 const links = [
   { platform: 'Email',    label: 'bnutfilloyev@gmail.com', href: 'mailto:bnutfilloyev@gmail.com' },
+  { platform: 'Instagram', label: '@bnutfilloyev',         href: 'https://www.instagram.com/bnutfilloyev/' },
+  { platform: 'X',        label: '@bnutfilloyev',          href: 'https://x.com/bnutfilloyev' },
   { platform: 'Telegram', label: '@bnutfilloyev',          href: 'https://t.me/bnutfilloyev' },
   { platform: 'LinkedIn', label: 'linkedin.com/in/bnutfilloyev', href: 'https://linkedin.com/in/bnutfilloyev' },
   { platform: 'GitHub',   label: 'github.com/bnutfilloyev', href: 'https://github.com/bnutfilloyev' },
@@ -14,6 +16,7 @@ type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>('idle')
+  const [errorText, setErrorText] = useState('')
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -26,9 +29,12 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-      if (res.ok) { setStatus('success'); form.reset() }
-      else setStatus('error')
+      if (res.ok) { setStatus('success'); form.reset(); return }
+      const body = await res.json().catch(() => ({}))
+      setErrorText(body.error ?? 'The message could not be delivered.')
+      setStatus('error')
     } catch {
+      setErrorText('No connection to the server.')
       setStatus('error')
     }
   }
@@ -38,7 +44,6 @@ export default function Contact() {
       <div className="wrap">
         <Reveal className="section-header">
           <h2 className="section-title" style={{ fontFamily: 'var(--font-serif)' }}>Contact</h2>
-          <span className="section-count" style={{ fontFamily: 'var(--font-mono)' }}>Let&apos;s talk</span>
         </Reveal>
 
         <div className="contact-inner">
@@ -66,36 +71,43 @@ export default function Contact() {
           <Reveal delay={150}>
             <div className="contact-form-wrap">
               <p className="cform-title">Send a message</p>
-              <form onSubmit={handleSubmit} noValidate>
+              <form onSubmit={handleSubmit}>
+                {/* Honeypot: hidden from people, filled in by bots */}
+                <input className="hp" type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                 <div className="frow">
                   <div className="fg">
                     <label htmlFor="f-name">Name</label>
-                    <input id="f-name" name="name" type="text" placeholder="Your name" required autoComplete="name" />
+                    <input id="f-name" name="name" type="text" placeholder="Your name" required maxLength={100} autoComplete="name" />
                   </div>
                   <div className="fg">
                     <label htmlFor="f-email">Email</label>
-                    <input id="f-email" name="email" type="email" placeholder="your@email.com" required autoComplete="email" />
+                    <input id="f-email" name="email" type="email" placeholder="your@email.com" required maxLength={200} autoComplete="email" />
                   </div>
                 </div>
                 <div className="fg">
                   <label htmlFor="f-subject">Subject</label>
-                  <input id="f-subject" name="subject" type="text" placeholder="What's this about?" required />
+                  <input id="f-subject" name="subject" type="text" placeholder="What's this about?" required maxLength={150} />
                 </div>
                 <div className="fg">
                   <label htmlFor="f-msg">Message</label>
-                  <textarea id="f-msg" name="message" placeholder="Tell me about your project..." required />
+                  <textarea id="f-msg" name="message" placeholder="Tell me about your project" required maxLength={5000} />
                 </div>
 
                 <button type="submit" className="btn btn-primary fsubmit" disabled={status === 'loading'}>
-                  {status === 'loading' ? 'Sending…' : 'Send Message'}
+                  {status === 'loading' ? 'Sending…' : 'Send message'}
                 </button>
 
-                {status === 'success' && (
-                  <p className="form-msg success">Message sent — I&apos;ll get back to you shortly.</p>
-                )}
-                {status === 'error' && (
-                  <p className="form-msg error">Something went wrong. Email me directly.</p>
-                )}
+                <div role="status" aria-live="polite">
+                  {status === 'success' && (
+                    <p className="form-msg success">Message sent. I&apos;ll reply to the email you gave.</p>
+                  )}
+                  {status === 'error' && (
+                    <p className="form-msg error">
+                      Message not sent: {errorText} You can email{' '}
+                      <a href="mailto:bnutfilloyev@gmail.com">bnutfilloyev@gmail.com</a> instead.
+                    </p>
+                  )}
+                </div>
               </form>
             </div>
           </Reveal>
