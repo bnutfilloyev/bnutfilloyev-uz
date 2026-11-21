@@ -142,7 +142,7 @@ export default function MlGap() {
 
           <div className={s.intro}>
             <p className={s.subtitle}>
-              How biometric systems are built, tested and defended — lessons from MyID and PalmID.
+              How biometric systems are built, tested and defended. Lessons from MyID and PalmID.
             </p>
             <p className={s.byline}>
               <span className={s.name}>Bekhruz Nutfilloev</span>
