@@ -30,7 +30,7 @@ const personJsonLd = {
   '@type': 'Person',
   name: 'Bekhruz Nutfilloev',
   url: 'https://bnutfilloyev.uz',
-  jobTitle: 'Machine Learning Engineer',
+  jobTitle: 'Lead AI Engineer',
   worksFor: { '@type': 'Organization', name: 'AI Implementation Group' },
   address: { '@type': 'PostalAddress', addressLocality: 'Tashkent', addressCountry: 'UZ' },
   sameAs: [

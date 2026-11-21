@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { existsSync } from 'node:fs'
-import path from 'node:path'
 import Link from 'next/link'
+import { slidesAvailable } from '@/lib/mlgap'
 import { Space_Grotesk } from 'next/font/google'
 import s from './mlgap.module.css'
 
@@ -40,8 +39,9 @@ export const viewport: Viewport = {
   themeColor: '#0F1217',
 }
 
-// Checked at build time: drop public/mlgap/slides.pdf in and redeploy to switch the CTA on.
-const hasSlides = existsSync(path.join(process.cwd(), 'public', 'mlgap', 'slides.pdf'))
+// Re-rendered at most once a minute, so the slides button switches on by itself
+// shortly after SLIDES_UNLOCK_AT (lib/mlgap.ts) — no rebuild needed.
+export const revalidate = 60
 
 // Slide 43 order ("@bnutfilloyev on Instagram · X · Telegram"), then LinkedIn.
 const channels = [
@@ -115,6 +115,8 @@ function ResourceList({ items }: { items: Resource[] }) {
 }
 
 export default function MlGap() {
+  const hasSlides = slidesAvailable()
+
   return (
     <div className={`${s.page} ${grotesk.variable}`}>
       <header className={s.hero}>

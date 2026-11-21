@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bekhruz Nutfilloev — Resume</title>
+<!--
+  Source of public/resume.pdf. Edit this file, then run:  npm run resume
+  Keep it in step with the site (components/Resume.tsx, Work.tsx, Skills.tsx).
+-->
+<style>
+  @page { size: A4; margin: 11mm 14mm 10mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 8.9pt; line-height: 1.36; color: #16161a;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header { padding-bottom: 7pt; border-bottom: 1.2pt solid #16161a; margin-bottom: 4pt; }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif; font-style: italic; font-weight: 400;
+    font-size: 23pt; line-height: 1.05; letter-spacing: -.01em;
+  }
+  .title { font-size: 11pt; font-weight: 600; margin-top: 3pt; }
+  .contact { margin-top: 3pt; color: #3c3c44; font-size: 8.5pt; }
+  .contact span + span::before { content: "·"; margin: 0 5pt; color: #9a7b3f; }
+
+  section { margin-top: 7pt; }
+  h2 { break-after: avoid; }
+  h2 {
+    font-size: 8.4pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: #9a7b3f; margin-bottom: 3pt; padding-bottom: 1.5pt; border-bottom: .5pt solid #d8d4cb;
+  }
+  p.summary { max-width: 100%; }
+
+  .skills { display: grid; grid-template-columns: 34mm 1fr; row-gap: 1.5pt; column-gap: 8pt; }
+  .skills dt { font-weight: 600; }
+
+  .job { margin-top: 5pt; break-inside: avoid; }
+  .job:first-of-type { margin-top: 2pt; }
+  .job-head { display: flex; justify-content: space-between; gap: 12pt; align-items: baseline; }
+  .role { font-weight: 700; }
+  .org { font-weight: 400; }
+  .when { white-space: nowrap; color: #3c3c44; font-size: 8.5pt; }
+  ul { margin: 1.5pt 0 0 11pt; }
+  li { margin-top: .8pt; padding-left: 1pt; }
+  li::marker { color: #9a7b3f; }
+
+  .plain { list-style: none; margin-left: 0; }
+  .plain li { display: flex; justify-content: space-between; gap: 12pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Bekhruz Nutfilloev</h1>
+  <p class="title">Lead AI Engineer, AIIG (AI Implementation Group)</p>
+  <p class="contact">
+    <span>Tashkent, Uzbekistan</span><span><a href="mailto:bnutfilloyev@gmail.com">bnutfilloyev@gmail.com</a></span><span><a href="tel:+998883001001">+998 88 300 10 01</a></span><span><a href="https://bnutfilloyev.uz">bnutfilloyev.uz</a></span>
+  </p>
+  <p class="contact">
+    <span>@bnutfilloyev on <a href="https://www.instagram.com/bnutfilloyev/">Instagram</a>, <a href="https://x.com/bnutfilloyev">X</a>, <a href="https://t.me/bnutfilloyev">Telegram</a></span><span><a href="https://linkedin.com/in/bnutfilloyev">linkedin.com/in/bnutfilloyev</a></span><span><a href="https://github.com/bnutfilloyev">github.com/bnutfilloyev</a></span>
+  </p>
+</header>
+
+<section>
+  <h2>Summary</h2>
+  <p class="summary">
+    Machine Learning Engineer with 5+ years of experience designing, developing and deploying production AI systems
+    at scale, focused on computer vision, biometric recognition and edge AI optimization. Core engineer on the MyID and
+    PalmID biometric platforms used across Uzbekistan&rsquo;s national banking infrastructure. Strong background in
+    C/C++ SDK development, PyTorch optimization and end-to-end MLOps.
+  </p>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Programming</dt><dd>Python, C/C++, SQL, Bash</dd>
+    <dt>ML frameworks</dt><dd>PyTorch, TensorFlow / Keras, ONNX / ONNX Runtime, Scikit-learn, LangGraph / LangChain</dd>
+    <dt>Vision &amp; biometrics</dt><dd>OpenCV, YOLO, ArcFace, FaceNet, liveness detection, anti-spoofing, palm vein recognition</dd>
+    <dt>Edge &amp; optimization</dt><dd>NVIDIA Jetson, CUDA, TensorRT, model quantization, AES-256 model encryption</dd>
+    <dt>MLOps &amp; data</dt><dd>Docker, Git, CI/CD, MLflow, TorchServe, FastAPI, RAG / vector search, Qdrant, FAISS, ElasticSearch, PostgreSQL</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-head"><p><span class="role">Lead AI Engineer</span> <span class="org">— AI Implementation Group, Tashkent</span></p><p class="when">Jan 2025 – Present</p></div>
+    <ul>
+      <li>Architect and deploy production ML models for enterprise-scale AI solutions serving thousands of concurrent users.</li>
+      <li>Design MLOps pipelines for automated model training, testing, deployment and monitoring.</li>
+      <li>AI candidate matching system: RAG-based HR platform with semantic search across a 1.6M-student database — LaBSE multilingual embeddings, LangGraph orchestration, Qdrant vector store; 3–5 s end-to-end queries.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><p><span class="role">Lead AI Engineer</span> <span class="org">— Robocontest.uz, Tashkent</span></p><p class="when">Jan 2025 – Sep 2025</p></div>
+    <ul>
+      <li>Designed computer vision systems for an autonomous robotics platform supporting 500+ participants.</li>
+      <li>Developed real-time object detection and tracking optimized for embedded hardware constraints.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><p><span class="role">CEO &amp; Founder</span> <span class="org">— Proxora Global LLC, Tashkent</span></p><p class="when">Sep 2024 – Nov 2025</p></div>
+    <ul>
+      <li>Founded an IT consulting firm delivering AI-powered digital transformation solutions to 15+ enterprise clients.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><p><span class="role">Machine Learning Engineer &amp; Researcher</span> <span class="org">— UZINFOCOM LLC, Tashkent</span></p><p class="when">Nov 2021 – Jan 2025</p></div>
+    <ul>
+      <li>MyID biometric system: core engineer on the end-to-end facial recognition pipeline deployed across 50+ banks — 10M+ authentication requests a month, 99.7% accuracy, sub-200 ms latency.</li>
+      <li>Developed liveness detection models with 98.5% anti-spoofing accuracy.</li>
+      <li>PalmID: production palm vein recognition C/C++ SDK — 60% inference speedup through ONNX optimization and TensorRT acceleration.</li>
+      <li>Implemented AES-256 model encryption and secure deployment protocols protecting proprietary models on IoT devices.</li>
+      <li>Vector search infrastructure with FAISS and Qdrant for real-time biometric matching across a 5M+ database.</li>
+      <li>Established CI/CD workflows for ML models, including automated testing, versioning and rollback.</li>
+      <li>Deployed ArcFace and FaceNet embedding models optimized for edge devices with 8× memory reduction.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><p><span class="role">Computer Vision Engineer</span> <span class="org">— TASS Vision, Tashkent</span></p><p class="when">May 2021 – Aug 2021</p></div>
+    <ul>
+      <li>Developed object detection models for NVIDIA Jetson running at 30 FPS on resource-constrained hardware.</li>
+      <li>Optimized MobileNet and Caffe models with TensorFlow and CUDA, reducing inference latency by 45%.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head"><p><span class="role">Machine Learning Engineer Intern</span> <span class="org">— TTSUzbekistan, Tashkent</span></p><p class="when">Jan 2021 – Jul 2021</p></div>
+    <ul>
+      <li>Implemented automatic speech recognition with SOVA ASR, reaching 92% word accuracy on an Uzbek corpus.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Projects &amp; speaking</h2>
+  <ul class="plain">
+    <li><span><strong>Chest X-ray pneumonia detection</strong> — full-stack medical AI: EfficientNetB0 → ONNX, FastAPI backend, React frontend. <a href="https://github.com/bnutfilloyev/chest-xray-pneumonia-detection">github.com/bnutfilloyev/chest-xray-pneumonia-detection</a></span><span class="when">2025</span></li>
+    <li><span><strong>Speaker</strong> — ML Gap, Techstars Startup Week Tashkent — &ldquo;99.9% in the Lab. 19 Million in Real Life.&rdquo;</span><span class="when">24 Nov 2026</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <ul class="plain">
+    <li><span><strong>Bachelor of Software Engineering</strong> — Tashkent University of Information Technology</span><span class="when">2020 – 2024</span></li>
+    <li><span><strong>Bachelor of Engineering, Artificial Intelligence</strong> — Innopolis University</span><span class="when">2022 – 2023</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Awards &amp; certifications</h2>
+  <ul class="plain">
+    <li><span><strong>Winner</strong> — World AI &amp; Data Challenge · Open Data Challenge Uzbekistan · Voice AI Challenge 2021</span></li>
+    <li><span><strong>Certifications</strong> — Google Technical Support Fundamentals · The Bits and Bytes of Computer Networking · FastAPI and Python</span></li>
+  </ul>
+</section>
+
+</body>
+</html>

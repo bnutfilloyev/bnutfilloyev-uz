@@ -16,7 +16,7 @@ export default function Resume() {
               {[
                 {
                   date: 'January 2025 — Present',
-                  role: 'Machine Learning Engineer',
+                  role: 'Lead AI Engineer',
                   org: 'AI Implementation Group',
                   desc: 'Architect and deploy production ML models for enterprise-scale AI solutions. Design MLOps pipelines for automated model training, testing, deployment, and monitoring.',
                 },
